@@ -1,0 +1,40 @@
+Git 是一个版本控制系统，可以理解为一个工具，使用之前必须得先下载安装，所以第一步必须要安装。
+Windows：GitForWindows
+Linux：在终端输入命令行安装
+第二步：自动用新注册账户登陆，进入 Github 主页。zyh418 gsxy8390
+3.创建目录，进入该目录，用 Git 来控制这个目录，，输入 git init 即可。
+这是 Git 的初始化操作，作用是将一个已存在文件夹，置于 Git 的控制管理之下。
+再 ls -la 命令，会发现一个名叫 .git 的目录被创建了，这意味着仓库初始化成功。
+4.Git 提交代码的基本流程是这样的：
+创建或修改 本地文件
+使用 git add 命令，将创建或修改的文件添加到本地的 暂存区，这里保存的是你的临时更改
+（1）使用 git add + 文件名/目录名 命令，可以将你需要同步的文件，添加到本地的暂存区。
+cd /home/shiyanlou/Demo
+git add README.md
+输入 git status ，可以检测当前目录和暂存区的状态，查看哪些修改被暂存了：
+（2）使用 git commit 命令，提交文件到 本地仓库
+在提交之前，你必须先设置你的名字和 email，这是你在提交 commit 时的签名，每次提交记录里都会包含这些信息。
+使用 git config 命令进行配置：
+$ git config --global user.name "zyh418"
+$ git config --global user.email "513442920@qq.com"
+完成配置后，我们可以创建提交了，请输入：
+git commit -m "first commit"
+commit 的语法结构是 git commit -m "注释"，通过上个命令，你创建了一条注释为 “first commit” 的 Git 提交。
+(3)使用 git push命令，将本地代码库同步到 远端仓库
+连接 Github 仓库
+使用如下命令，将本地仓库连接到 GitHub 仓库中：
+git remote add origin 仓库链接
+后面接上的 origin 是这个仓库的小名，方便以后沟通，通常默认用 origin 来表示；
+使用 push 可以把本地仓库推送到远端仓库中。
+具体命令如下：
+git push origin master
+你只需知道 Git 管理的项目进程中，有一条默认的主分支 - master 即可。（想象 Git 是一棵树，master 就是树干，树干上还可以生出很多分支来，如 master 2.0、master 3.0 等）
+
+git clone 命令，它可以帮你拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改。
+如果你想要复制一个项目，看看代码，或者把自己的远程仓库复制到本地，可以执行命令：
+git clone [url]
+[url] 指的就是你想复制的仓库
+$ cd /home/shiyanlou/
+$ git clone https://github.com/shiyanlou/gitproject
+操作完成后，会发现 /home/shiyanlou 目录下多了一个 gitproject 文件夹，这个文件夹里的内容就是我们刚刚 clone 下来的代码。
+
